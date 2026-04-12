@@ -3,7 +3,7 @@ package org.example.springredis.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.RedisCallback;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.data.redis.connection.SortParameters;
 import org.springframework.data.redis.core.query.SortCriterion;
@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 public class KeyManagementService {
 
-    private final RedisTemplate<String, String> redisTemplate;
+    private final StringRedisTemplate redisTemplate;
 
     // EXISTS key - 키 존재 여부 확인 (있으면 true)
     public Boolean exists(String key) {

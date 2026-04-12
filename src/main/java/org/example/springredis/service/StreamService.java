@@ -6,7 +6,7 @@ import org.springframework.data.redis.connection.stream.ReadOffset;
 import org.springframework.data.redis.connection.stream.RecordId;
 import org.springframework.data.redis.connection.stream.StreamOffset;
 import org.springframework.data.redis.connection.stream.StreamRecords;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class StreamService {
 
-    private final RedisTemplate<String, String> redisTemplate;
+    private final StringRedisTemplate redisTemplate;
 
     // XADD key * field value [field value ...] - 스트림에 메시지 추가 (Producer)
     // * 는 ID 자동 생성, 반환값: 생성된 레코드 ID (예: 1638125133152-0)

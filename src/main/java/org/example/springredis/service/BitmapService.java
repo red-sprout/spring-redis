@@ -3,7 +3,7 @@ package org.example.springredis.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.connection.BitFieldSubCommands;
 import org.springframework.data.redis.core.RedisCallback;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BitmapService {
 
-    private final RedisTemplate<String, String> redisTemplate;
+    private final StringRedisTemplate redisTemplate;
 
     // SETBIT key offset value - 특정 오프셋에 비트 설정 (이전 값 반환)
     public Boolean setbit(String key, long offset, boolean value) {

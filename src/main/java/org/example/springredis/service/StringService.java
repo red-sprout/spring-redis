@@ -1,7 +1,7 @@
 package org.example.springredis.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class StringService {
 
-    private final RedisTemplate<String, String> redisTemplate;
+    private final StringRedisTemplate redisTemplate;
 
     // SET key value
     public void set(String key, String value) {

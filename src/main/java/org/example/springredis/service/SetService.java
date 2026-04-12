@@ -2,7 +2,7 @@ package org.example.springredis.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.Cursor;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class SetService {
 
-    private final RedisTemplate<String, String> redisTemplate;
+    private final StringRedisTemplate redisTemplate;
 
     // SADD key member [member ...] - 아이템 추가 (중복 무시)
     public Long sadd(String key, String... members) {

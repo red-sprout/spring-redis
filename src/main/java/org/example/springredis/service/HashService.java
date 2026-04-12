@@ -2,7 +2,7 @@ package org.example.springredis.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.Cursor;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class HashService {
 
-    private final RedisTemplate<String, String> redisTemplate;
+    private final StringRedisTemplate redisTemplate;
 
     // HSET key field value - 단일 필드 저장
     public void hset(String key, String field, String value) {

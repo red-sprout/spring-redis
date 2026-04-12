@@ -3,7 +3,7 @@ package org.example.springredis.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Range;
 import org.springframework.data.redis.core.Cursor;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class SortedSetService {
 
-    private final RedisTemplate<String, String> redisTemplate;
+    private final StringRedisTemplate redisTemplate;
 
     // ZADD key score member - 기본 저장
     public Boolean zadd(String key, double score, String member) {
