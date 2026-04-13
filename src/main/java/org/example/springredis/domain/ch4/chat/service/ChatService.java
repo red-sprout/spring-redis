@@ -6,6 +6,7 @@ import org.example.springredis.domain.ch4.chat.repository.ChannelRepository;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -61,5 +62,9 @@ public class ChatService {
                 USER_KEY_PREFIX + userId,
                 CHANNEL_FIELD_PREFIX + channelId
         );
+    }
+
+    public List<Channel> getAllChannels() {
+        return channelRepository.findAll();
     }
 }

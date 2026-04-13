@@ -60,6 +60,10 @@ public class LocationService {
         return redisTemplate.opsForGeo().distance(GEO_KEY, place1, place2, Metrics.KILOMETERS);
     }
 
+    public List<Place> getAllPlaces() {
+        return placeRepository.findAll();
+    }
+
     // MySQL 전체 → Redis 동기화
     public void syncAllToRedis() {
         placeRepository.findAll().forEach(p ->

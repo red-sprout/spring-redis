@@ -21,9 +21,19 @@ public class PostController {
         return ResponseEntity.ok(postService.createPost(request.title(), request.content(), request.userId()));
     }
 
+    @GetMapping("/posts")
+    public ResponseEntity<List<Post>> getAllPosts() {
+        return ResponseEntity.ok(postService.getAllPosts());
+    }
+
     @GetMapping("/posts/{postId}")
     public ResponseEntity<Post> getPost(@PathVariable Long postId) {
         return ResponseEntity.ok(postService.getPostById(postId));
+    }
+
+    @GetMapping("/tags")
+    public ResponseEntity<List<Tag>> getAllTags() {
+        return ResponseEntity.ok(postService.getAllTags());
     }
 
     @PostMapping("/tags")

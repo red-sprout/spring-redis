@@ -17,6 +17,11 @@ public class LocationController {
 
     private final LocationService locationService;
 
+    @GetMapping
+    public ResponseEntity<List<Place>> getAllPlaces() {
+        return ResponseEntity.ok(locationService.getAllPlaces());
+    }
+
     @PostMapping
     public ResponseEntity<Place> addPlace(@RequestBody AddPlaceRequest request) {
         return ResponseEntity.ok(locationService.addPlace(request.name(), request.longitude(), request.latitude()));

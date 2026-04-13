@@ -6,6 +6,7 @@ import org.example.springredis.domain.ch4.chat.service.ChatService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -14,6 +15,11 @@ import java.util.Map;
 public class ChatController {
 
     private final ChatService chatService;
+
+    @GetMapping("/channels")
+    public ResponseEntity<List<Channel>> getAllChannels() {
+        return ResponseEntity.ok(chatService.getAllChannels());
+    }
 
     @PostMapping("/channels")
     public ResponseEntity<Channel> createChannel(@RequestBody CreateChannelRequest request) {

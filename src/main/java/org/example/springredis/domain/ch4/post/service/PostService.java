@@ -89,4 +89,12 @@ public class PostService {
         return postRepository.findById(postId)
                 .orElseThrow(() -> new IllegalArgumentException("Post not found: " + postId));
     }
+
+    public List<Post> getAllPosts() {
+        return postRepository.findAll();
+    }
+
+    public List<Tag> getAllTags() {
+        return tagRepository.findAll();
+    }
 }
