@@ -2,12 +2,14 @@ spring:
   application:
     name: spring-redis
 
+  config:
+    import: classpath:secret.yml
+
   # ── MySQL ─────────────────────────────────────────────
   datasource:
     url: jdbc:mysql://localhost:3306/spring_redis?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: redis
-    password: redis
     driver-class-name: com.mysql.cj.jdbc.Driver
+    # username / password → secret.yml
 
   jpa:
     hibernate:
