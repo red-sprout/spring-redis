@@ -54,6 +54,11 @@ public class PostService {
         redisTemplate.opsForSet().add(TAG_KEY_PREFIX + tagId, postId.toString());
     }
 
+    // Redis 캐시만 갱신 (MySQL은 이미 저장된 경우)
+    public void cacheTagPost(Long tagId, Long postId) {
+        redisTemplate.opsForSet().add(TAG_KEY_PREFIX + tagId, postId.toString());
+    }
+
     // SINTER tag:{id1} tag:{id2} ... → postId 목록 → MySQL 조회
     public List<Post> getPostsByTagIntersection(List<Long> tagIds) {
         if (tagIds.isEmpty()) return List.of();
